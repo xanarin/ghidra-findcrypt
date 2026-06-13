@@ -1,0 +1,12 @@
+image: gradle:latest
+
+volumes:
+  /ghidra: /replace_this_with/path_to_ghidra
+
+environment:
+  GHIDRA_INSTALL_DIR: /ghidra/
+
+entrypoint: ""
+
+aliases:
+  build: cd "$SCUBA_ROOT/FindCrypt" && gradle

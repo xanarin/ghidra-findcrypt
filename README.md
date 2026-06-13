@@ -10,22 +10,20 @@ API to label found constants.
 
 ## Building
 
-FindCrypt builds like a standard Ghidra module:
+Install [scuba](https://scuba.readthedocs.io/en/latest/installation.html) and Docker on your system.
 
-```bash
-cd FindCrypt
-GHIDRA_INSTALL_DIR=/path/to/Ghidra_PUBLIC... gradle
+Next, modify the `.scuba.yml` file to specify your local Ghidra installation path:
+```yaml
+volumes:
+  /ghidra: /my/local/directory/ghidra_12.1.2_PUBLIC/
 ```
 
-This will output a zip in the `FindCrypt/dist/` directory.
+Then, run `scuba build` to build the extension. This will output a zip in the `FindCrypt/dist/` directory.
 
 Note: Ghidra FindCrypt no longer supports Ghidra versions prior to 9.2 as they
 lack the Gson JSON library.
 
 ## Installing
-
-You can either build it yourself (see above) or download
-a zip from the [Github releases](https://github.com/TorgoTorgo/ghidra-findcrypt/releases) or [GitLab releases](https://gitlab.com/Torgo/ghidra_findcrypt/-/releases)
 
 The extension can be installed into Ghidra like so:
 - Extract the zip if downloaded from the release page
@@ -52,4 +50,3 @@ take precedence.
 
 A comment is always placed when a crypt constant is found to tell you the type
 and the size of the constant, just in case the datatype wasn't applied.
-
